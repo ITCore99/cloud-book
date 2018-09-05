@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/book/book",
+    "pages/catalog/catalog",
+    "pages/bookDetail/bookDetail"
+     
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "云书村",
+    "navigationBarTextStyle": "black"
+  }
+}

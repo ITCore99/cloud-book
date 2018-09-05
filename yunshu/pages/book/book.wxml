@@ -1,0 +1,36 @@
+<view class="container">
+  <image src="/imgs/Wedges-3s-200px.svg" class="loading"  wx:if="{{isLoading}}"></image>
+  <view wx:else>
+      <view class="header">
+      <view class="header-t">
+          <view>
+              <image src="{{bookContent.data.img}}"></image>
+          </view>
+          <view class="inform">
+            <text class="title">{{bookContent.data.title}}</text>
+            <text class="same">作者：{{bookContent.data.author}}</text>
+            <text class="same">{{bookContent.data.looknums}}人在看</text>
+            <text class="same">{{bookContent.data.startsnums}}人喜欢</text>
+          </view>
+      </view>
+      <view class="header-b">
+          <button>已收藏</button>
+          <button>分享好友</button>
+      </view>
+  </view>
+  <view class="desc">
+      <text class="desc-title">简介</text>
+      <scroll-view scroll-y class="desc-content" bindtap="toggle">{{bookContent.data.desc}}</scroll-view>
+  </view>
+  <view class="catalog" bindtap="JumpCatalog">
+      <view>
+          <text class="title">查看目录</text>
+          <text decode="{{true}}" class="same1">&nbsp;&nbsp;共{{bookContent.length}}章</text>
+      </view>
+      <view class="same">更新于2天前></view>
+  </view>
+  <view class="btn">
+      <button bindtap="JumpCatalog" data-id="{{bookContent.data._id}}">阅读该书籍</button>
+</view>
+</view>
+</view>

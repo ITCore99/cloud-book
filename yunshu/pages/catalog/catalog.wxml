@@ -1,0 +1,11 @@
+<view class="container">
+     <image src="/imgs/Wedges-3s-200px.svg" class="loading"  wx:if="{{isLoading}}"></image>
+    <view wx:else>
+        <view class="catalogTitle">
+        <text class="title">目录</text>
+    </view>
+    <view class="catalogItem" wx:for="{{catalogData}}" wx:for-item="item" wx:key="{{index}}" bindtap="JumpDetail" data-id="{{item._id}}">
+        <text class="catalogContent">{{item.title}}</text>
+    </view>
+    </view>
+</view>

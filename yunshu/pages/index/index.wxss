@@ -1,0 +1,94 @@
+page
+{
+  margin:0;
+  width:100%;
+}
+.container
+{ 
+  width: 710rpx;
+  padding:20rpx;
+}
+swiper-item
+{ 
+  width:710rpx;
+}
+swiper-item .SwiperImg
+{
+  width:710rpx;
+}
+.catalog-list
+{
+  padding:50rpx 10rpx;
+}
+.catalog-list .catalog-title
+{
+  border-left: 2px solid #aaa;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 25rpx;
+}
+.main
+{
+  display: flex;
+  justify-content:space-between;
+  width:710rpx;
+  margin-top:30rpx;
+}
+.bookIMG image
+{ 
+  height:280rpx;
+  width:220rpx;
+  padding:20rpx 10rpx 0 0;
+}
+.book-detail .top
+{
+  font-size: 13px;
+  color:#333;
+  font-weight: bold;
+}
+.book-detail .detail
+{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:4;
+  overflow: hidden;
+  font-size:12px;
+  color:#444;
+  line-height: 1.5;
+  margin-top: 15rpx;
+}
+.book-detail
+{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+.fooster
+{  
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color:#aaa;
+}
+.fooster .DL
+{
+  display: flex;
+  justify-content:space-between;
+}
+.book-detail .header
+{
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color:#ccc;
+}
+.loading
+{
+  position: fixed;
+  left:50%;
+  top:50%;
+  background: #fff;
+  width:200rpx;
+  height: 200rpx; 
+  margin: -100rpx; 
+}
