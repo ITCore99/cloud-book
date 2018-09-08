@@ -45,7 +45,7 @@ Page({
   {
     let id=e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: `/pages/bookDetail/bookDetail?id=${id}&bookID=${this.data.bookID}`,
+      url: `/pages/bookDetail/bookDetail?id=${id}&bookID=${this.data.bookID}&index=${e.currentTarget.dataset.index}`,
     });
    }
 

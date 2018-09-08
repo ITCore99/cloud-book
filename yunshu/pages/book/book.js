@@ -1,4 +1,4 @@
-import {MyFetch} from "../../utils/util.js"
+import { MyFetch, updateTime} from "../../utils/util.js"
 Page({
 
   /**
@@ -29,6 +29,9 @@ Page({
       isLoading:true,
     });
     MyFetch.get(`/book/${this.data.bookID}`).then(res=>{
+      let newbookContent = res;
+      let NewDate =updateTime(res.data.updateTime);
+      newbookContent.NewDate = NewDate;
       this.setData({
         bookContent:res,
         isLoading: false,
@@ -57,6 +60,46 @@ Page({
     this.setData({
       isToggle: !this.data.isToggle,
     });
+  },
+  /**
+   * 定义添加收藏的函数
+   */
+  addCollect()
+  {
+    MyFetch.post("/collection",{bookId:this.data.bookID}).
+    then(res=>{
+      if(res.code==200)
+      {
+        wx.showToast({
+          title: '收藏成功',
+          icon: "success"
+        })
+      }
+      let obj = this.data.bookContent
+      Object.assign(obj,{ isCollect:1});
+      this.setData({
+        bookContent: obj, 
+      })
+    }).catch(err=>{
+     wx.showToast({
+       title: '发生未知错误',
+       icon:"none"
+     })
+      console.log(err);
+    })
+  },
+  /**
+   * 分享的函数
+   *
+   */
+  onShareAppMessage:function()
+  { 
+    return{
+      title:this.data.bookContent.data.title,
+      path:`/pages/book/book? id=${this.data.bookID}`,
+      imgeUrl:"this.data.bookContent.data.img"
+    }
   }
 
+ 
 })

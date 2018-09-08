@@ -14,8 +14,8 @@
           </view>
       </view>
       <view class="header-b">
-          <button>已收藏</button>
-          <button>分享好友</button>
+          <button  bindtap="addCollect" disabled="{{bookContent.isCollect==1 ? true:false}}">{{bookContent.isCollect==0 ? "收藏":"已收藏"}}</button>
+          <button  open-type="share">分享好友</button>
       </view>
   </view>
   <view class="desc">
@@ -27,7 +27,7 @@
           <text class="title">查看目录</text>
           <text decode="{{true}}" class="same1">&nbsp;&nbsp;共{{bookContent.length}}章</text>
       </view>
-      <view class="same">更新于2天前></view>
+      <view class="same">更新于{{bookContent.NewDate}}></view>
   </view>
   <view class="btn">
       <button bindtap="JumpCatalog" data-id="{{bookContent.data._id}}">阅读该书籍</button>

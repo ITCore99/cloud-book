@@ -1,15 +1,45 @@
 {
   "pages": [
+     
+  
     "pages/index/index",
     "pages/book/book",
     "pages/catalog/catalog",
-    "pages/bookDetail/bookDetail"
-     
+    "pages/bookDetail/bookDetail",
+    "pages/MyStudy/MyStudy",
+    "pages/Mine/Mine",
+    "pages/collection/collection"
+   
+    
+  
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "云书村",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor":"#1296db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "书亭",
+        "iconPath": "/imgs/home_white.png",
+        "selectedIconPath": "/imgs/home_blue.png"
+      },
+      {
+        "pagePath": "pages/MyStudy/MyStudy",
+        "text": "学习记录",
+        "iconPath": "/imgs/book_white.png",
+        "selectedIconPath": "/imgs/book_blue.png"
+      },
+      {
+        "pagePath": "pages/Mine/Mine",
+        "text": "我的",
+        "iconPath": "/imgs/mine_white.png",
+        "selectedIconPath": "/imgs/mine_bule.png"
+      }
+    ]
   }
 }

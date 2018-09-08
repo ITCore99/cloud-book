@@ -1,0 +1,37 @@
+<view>
+   <image src="/imgs/Wedges-3s-200px.svg" class="loading" wx:if="{{isLoading}}"></image>
+  <scroll-view scroll-y class="wrapper" wx:else>
+  <view class="container" wx:for="{{readList}}"wx:key="{{index}}">
+    <view class="bookImg">
+      <image src="{{item.book.img}}"></image>
+    </view>
+    <view class="contents">
+      <text class="title">{{item.book.title}}</text>
+      <text class="desc">书籍:{{item.title.index+1}}/{{item.title.total}}章节</text>
+      <view class="progressShow">
+        <progress percent="{{item.precent}}" stroke-width="2" active/>
+        <text>已读{{item.precent}}%</text>
+      </view>
+      <view class="record">
+        <view class="record-left">
+          <text>上次查看：</text>
+          <text>第{{item.title.index+1}}章：</text>
+          <text>{{item.title.title}}</text>
+        </view>
+        <text class="record-right">{{item.newDate}}</text>
+      </view>
+      <view class="btn">
+        <button bindtap="jumpBookDetail" data-id="{{item.title._id}}" data-bookID="{{item.title.bookId}}" data-index="{{item.title.index}}">
+          <text>继续阅读</text>
+        </button>
+        <button bindtap="jumpBook" data-id="{{item.title.bookId}}">
+          <text> 查看书籍</text>
+        </button>
+      </view>
+    </view>
+  </view>
+  <view class="bottomTips">
+       <text class="tip">已全部加载</text>
+  </view>
+</scroll-view>
+</view>

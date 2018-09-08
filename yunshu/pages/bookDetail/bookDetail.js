@@ -14,16 +14,19 @@ Page({
     isLoading:false,/**控制加载页的实现 */
     index:"", /**记录当前的索引值 */
     font:40,/**设置字体默认的大小 */
+    indexs:"0",/**控制哪一个目录底部高亮 */
+    airtletitle:"",/**定义一个目录title */
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+     
     this.setData({
       catalogID: options.id, 
-      bookID: options.bookID, 
+      bookID: options.bookID,
+      indexs: options.index
     });
     this.getData();
     this.getCatalog();
@@ -37,13 +40,16 @@ Page({
       isLoading: true,
     });
     MyFetch.get(`/article/${this.data.catalogID}`).then(res=>{
-      // let data = app.towxml.toJson(res.data.article.content,"markdown");
      this.setData({
        BookContent:res.data.article.content,
        catalogName:res.data.title,
        isLoading: false,
        index:res.data.article.index,
+       airtletitle:res.data.title,
      });
+     wx.setNavigationBarTitle({
+       title: this.data.airtletitle,
+     })
     }).catch(err=>{
       console.log(err);
       this.setData({
@@ -89,6 +95,7 @@ Page({
       let id=e.currentTarget.dataset.id;
       this.setData({
         catalogID:id,
+        indexs:e.currentTarget.dataset.index,
      });
      this.getData(); //注意尽量应变量表示
   },
@@ -103,6 +110,7 @@ Page({
        if (this.data.catalogData[index + 1]) {
          this.setData({
            catalogID: this.data.catalogData[index + 1]._id,
+           indexs:index+1,
          });
          this.getData();
        } else {
@@ -118,6 +126,7 @@ Page({
        {
           this.setData({
             catalogID:this.data.catalogData[index-1]._id,
+            indexs: index -1,
           });
           this.getData();
        }else

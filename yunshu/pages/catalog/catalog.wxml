@@ -4,7 +4,7 @@
         <view class="catalogTitle">
         <text class="title">目录</text>
     </view>
-    <view class="catalogItem" wx:for="{{catalogData}}" wx:for-item="item" wx:key="{{index}}" bindtap="JumpDetail" data-id="{{item._id}}">
+    <view class="catalogItem" wx:for="{{catalogData}}" wx:for-item="item" wx:key="{{index}}" bindtap="JumpDetail" data-id="{{item._id}}" data-index="{{item.index}}">
         <text class="catalogContent">{{item.title}}</text>
     </view>
     </view>

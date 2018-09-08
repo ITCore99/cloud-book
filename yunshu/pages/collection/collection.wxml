@@ -1,0 +1,14 @@
+<view>
+<image src="/imgs/Wedges-3s-200px.svg" class="loading" wx:if="{{isLoading}}"></image>
+<scroll-view class="scroll">
+  <view scroll-y class="container">
+    <view class="wraper" wx:for="{{collectList}}" wx:key="{{index}}">
+      <view class="img" bindtap="{{delFlag ?'':'jumpBook'}}" data-id="{{item.book._id}}" bindlongtap="longTap">
+        <image src="{{item.book.img}}"></image>
+      </view>
+      <view class="bookName">{{item.book.title}}</view>
+      <image class="icon" src="/imgs/del.png" wx:if="{{delFlag}}" bindtap="delIConTap" data-id="{{item.book._id}}" data-index="{{index}}"/>
+    </view>
+  </view>
+</scroll-view>
+</view>

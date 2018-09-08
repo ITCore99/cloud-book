@@ -1,36 +1,49 @@
- <view class="container">
-  <image src="/imgs/Wedges-3s-200px.svg" class="loading"  wx:if="{{isLoading}}"></image>
-  <view wx:else>
-    <swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" previous-margin="{{previousMargin}}" next-margin="{{nextMargin}}">
-  <block wx:for="{{swiperData}}" wx:key="{{index}}">
-    <swiper-item bindtap="jumpBook" data-id="{{item.book._id}}">
-      <image  class="SwiperImg" src="{{item.img}}" class="slide-image" />
-    </swiper-item>
-  </block>
-</swiper>
-<view class="catalog-list" wx:for="{{catalogList}}" wx:for-item="item" wx:key="{{index}}">
-  <view class="catalog-title">{{item.title}}</view>
-  <view class="main" wx:for="{{item.books}}" wx:for-item="item2" wx:key="{{index}}"  bindtap="jumpBook" data-id="{{item2._id}}">
-      <view class="bookIMG">
-          <image src="{{item2.img}}"></image>
-      </view>
-      <view class="book-detail">
-          <view class="header">
-             <view class="top">{{item2.title}}</view>
-             <view class="detail">{{item2.desc}}</view>
+<view>
+  <view class="container">
+    <image src="/imgs/Wedges-3s-200px.svg" class="loading" wx:if="{{isLoading}}"></image>
+    <view wx:else>
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" previous-margin="{{previousMargin}}" next-margin="{{nextMargin}}">
+        <block wx:for="{{swiperData}}" wx:key="{{index}}">
+          <swiper-item bindtap="jumpBook" data-id="{{item.book._id}}">
+            <image src="{{item.img}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="catalog-list" wx:for="{{catalogList}}" wx:for-item="item" wx:key="{{index}}">
+        <view class="catalog-title">{{item.title}}</view>
+        <view class="main" wx:for="{{item.books}}" wx:for-item="item2" wx:key="{{index}}" bindtap="jumpBook" data-id="{{item2._id}}">
+          <view class="bookIMG">
+            <image src="{{item2.img}}"></image>
           </view>
-          <view class="fooster">
-            <view class="author">{{item2.author}}</view>
-            <view class="DL">
-                <text class="date">两天前</text> 
+          <view class="book-detail">
+            <view class="header">
+              <view class="top">{{item2.title}}</view>
+              <view class="detail">{{item2.desc}}</view>
+            </view>
+            <view class="fooster">
+              <view class="author">{{item2.author}}</view>
+              <view class="DL">
+                <text class="date">{{item2.NewDate}}</text>
                 <text decode="{{true}}">&nbsp;&nbsp;{{item.title}}</text>
                 <text class="lookNum">{{item2.looknums}}</text>
                 <text>人在看</text>
+              </view>
             </view>
           </view>
+        </view>
       </view>
+    </view>
   </view>
-</view>
-</view>
+  <view wx:if="{{initTest}}">
+    <!--上拉记载-->
+    <view class="loadMore" wx:if="{{hasMore}}">
+      <image src="/imgs/Flickr-1s-81px.svg" class="loadMoreImg"></image>
+      <text class="loadMoreText">我已经全速前进了......</text>
+    </view>
+    <view class="noMore" wx:if="{{loadDone}}">
+      <text class="TipsText">我已经到尽头了</text>
+      <view class="line"></view>
+      <view class="lineRight"></view>
+    </view>
+  </view>
 </view>
